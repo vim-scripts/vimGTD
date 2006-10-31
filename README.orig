@@ -1,0 +1,69 @@
+
+vimGTD - Using 'Getting Things Done' in Vim
+-------------------------------------------
+by Michael M. Tung <mtung@mat.upv.es>
+October 30, 2006
+all plugin files under the Vim Copyright License
+
+
+Overview
+--------
+
+PyGTD is  a simple  Getting Things  Done (GTD) system  based on  David Allen's
+personal-productivity  book  and  Stephen  Covey's  'Seven  Habits  of  Highly
+Effective People'. It is implemented as Python script written by Keith Martin.
+The goal is to easily organize and prioritize your todo lists.
+
+vimGTD  is a  bundle  of  plugin files  which  integrates  PyGTD into  vim. For
+convenience, I have also included the (slightly adapted) Python script and HTML
+documentation in this distribution.
+
+For a  detailed description  of the  PyGTD program, please  refer to  the HTML
+documentation included or the  author's website: http://96db.com/pyGTD/.  Note
+that if you update  the Python script from this site, you  will need to change
+the default file extension from .txt to .gtd in the program code.
+
+
+Installation
+------------
+
+Installation is fairly easy. Follow these steps:
+
+(i)   Copy the contents of the directory 'vim' (with all subdirectories as is)
+      to your local runtimepath (see ':help runtimepath' for various platforms).
+
+(ii)  After all the vim plugin files are copied, execute ':helptags ~/.vim/doc'
+      or your OS's equivalent to generate the new help tags.
+
+(iii) Rename the 'gtd.py' Python script (in directory PyGTD) to 'gtd' and copy
+      it to your system's execution path (on UNIX e.g. /usr/bin/gtd or
+      /usr/local/bin/gtd).
+
+(iv)  You might want to define a shorthand for running GTD from within vim
+      (typically when you edit the todo.gtd file). The following mapping will
+      do:
+
+      map ,gtd :!gtd %<C-M>:e<C-M><C-M>
+
+      so that ',gtd' launches PyGTD.
+
+(v)   If you use vim in combination with the Mutt email client, try out
+      the following macro in you muttrc configuration:
+
+      macro index \ch "!vim ~/GTD/todo.gtd\n" "start GTD"
+      macro pager \ch "!vim ~/GTD/todo.gtd\n" "start GTD"
+
+      which binds <CTRL>h to vim opening todo.gtd in your $HOME/GTD directory
+      using PyGTD (you might want to change the directory name).
+
+(vi)  Note that double-clicking on the context filenames (filenames surrounded
+      by brackets in the todo.gtd file) will automatically open them in a new
+      vim buffer for editing.
+
+(vii) Have fun using PyGTD with vim! 
+
+
+      Michael M. Tung <mtung@mat.upv.es>
+      For Vim version 6.0 and above
+      Last change: October 30, 2006
+

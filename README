@@ -1,0 +1,17 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=1699
+
+vimGTD - Using 'Getting Things Done' in Vim
+--------------------------------------------------------------
+all plugin files under the Vim Copyright License
+
+Overview
+--------------
+
+PyGTD is  a simple  Getting Things  Done (GTD) system  based on  David Allen's
+personal-productivity  book  and  Stephen  Covey's  'Seven  Habits  of  Highly
+Effective People'. It is implemented as Python script written by Keith Martin
+(http://96db.com/pyGTD/). The goal is to easily organize and prioritize your
+todo lists.
+
+vimGTD is the Vim frontend to the Python program and includes such features as
+syntax highlighting, file navigation support, and a quick help reference.

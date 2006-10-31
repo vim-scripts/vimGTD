@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Thiamin Trek Weblog Archives: Several new features added to
+pyGTD</title>
+<style type="text/css">
+body,td { font-family: Verdana,Geneva,Arial,Sans-serif; 
+                  font-size: 11px; color: #000000; }
+a { text-decoration: none; }
+h1 { font-size: 18pt; font-weight: bold; color: #ffffff; margin-top: 0; margin-bottom: 0;}
+.date {font-weight: bold; color: #000000; font-style: italic}
+.h2 { font-weight: bold; color: #000000; }
+.blosxomTime { text-decoration: italicize; color: #000000; }
+h2 {
+margin-bottom: 0;
+         font-family: Verdana,Geneva,Arial,Sans-serif;
+        color: #000000;
+        font-size: 11pt;
+        font-weight: bold;
+        text-align: left;
+        padding-right: 3px;
+        border: 1px solid black;
+        border-width: 0px 0px 1px 0px;
+}
+</style>
+
+<script type="text/javascript" src=
+"http://www.haloscan.com/load/km9725">
+</script>
+</head>
+<body bgcolor="#999966" text="#000000">
+<table border="0" cellpadding="5" cellspacing="5" summary=
+"page contents">
+<tr>
+<td colspan="2">
+</tr>
+
+<tr valign="top">
+<td bgcolor="#FFFFFF" width="502">
+<h2><a name="GTD/NewGTDFeatures">Several new features added to
+pyGTD</a></h2>
+
+<p>I recently added a bunch of new features to <a href=
+"/pyGTD/">pyGTD</a>:</p>
+
+<ul>
+<li>
+<p><strong>Contexts</strong><br>
+In the status line of a task, you can now tell pyGTD the appropriate
+context for that task. For example, use "L=@Work" (L stands for
+Location -- I'm running out of good abbreviations) to tell pyGTD that
+the task should be done at work. You can specify multiple contexts by
+separating them with commas. Contexts are inherited by subtasks unless
+you override them. The default context is the empty string (""), and
+context names are not case-sensitive.</p>
+
+<p>In addition, you can now use -c or --context in the command line to
+tell pyGTD which contexts to include in the todo list you're
+generating. Again, multiple contexts can be provided, separated by
+commas. If you want to include tasks with no specified context, include
+an extra comma at the beginning or end of your context list (e.g.,
+"-c,@Work").</p>
+</li>
+
+<li>
+<p><strong>Start date</strong><br>
+In addition to being able to specify a lead time for a task (e.g.,
+"S=3D") in the status line, you can also specify a specific start date
+with "S=yyyy-mm-dd". I use this all the time as an electronic "tickler
+file".</p>
+</li>
+
+<li>
+<p><strong>Adding new subtasks in the todo list</strong><br>
+You can add new subtasks to a task in your todo list by typing them
+directly into the notes field for that task. When you run pyGTD, they
+will be added back into the appropriate project file, and the new tasks
+will show up in your todo list as appropriate.</p>
+</li>
+
+<li>
+<p><strong>Prerequisites</strong><br>
+You can now specify prerequisite tasks that must be completed before a
+particular task will appear in the todo list. Prerequisites are
+specified by the ID of the prerequisite task (e.g., "PRE=3,4" means
+that tasks 3 and 4 must be complete before the specified task will
+become active), and if the prerequisite is in a different project file,
+the syntax is path/to/file|ID (e.g., "PRE=c:/gtd/projects/gtd.txt|5").
+I try hard not to use this feature, but some people find it
+indispensible.</p>
+</li>
+
+<li>
+<p><strong>Make edits in either the todo or the project
+file</strong><br>
+You'll notice that a four digit hex number is added as a CRC to each
+status line (e.g., "CRC=2A43"). This enables you to make changes to
+your tasks in either the project file or in the todo list, and pyGTD
+can tell which one has changed.</p>
+</li>
+
+<li>
+<p><strong>Project comments</strong><br>
+Any lines of text at the top of a project file before the first task
+are treated as comments, and they are preserved. This is a good place
+to write a quick note to yourself about the goal of the project, and
+how you'll know when you're done.</p>
+</li>
+
+<li>
+<p><strong>Process multiple todo lists at once</strong><br>
+Currently if you use the command-line interface to pyGTD, you must call
+pyGTD once for every todo list you want to generate (e.g., once for
+each context). As an advanced user feature, I've added an interface to
+the todo() function in gtd.py that allows you to generate all your todo
+lists in one pass, which is a lot faster. I'm planning to write a post
+about how I use pyGTD to implement Getting Things Done, so if you wait
+for that, more details will be provided.</p>
+</li>
+</ul>
+
+<p>I also completely revamped the way that pyGTD parses task and
+project files, moving completely to regular expressions from the
+state-machine hodge-podge I used before. This should make things much
+more robust.</p>
+
+<p>I have not updated the documentation yet, so consider this post a
+documentation addendum.</p>
+
+<p>Finally, I can now confirm that pyGTD runs unmodified under Windows,
+Linux, and MacOS. As long as you have python 2.3 or better, you're
+set.</p>
+
+<p>If you're already using pyGTD, you may want to download a <a href=
+"/pyGTD.zip">fresh copy</a> (23k). And don't forget <a href=
+"/pyGTD/">the original documentation</a>.</p>
+
+<p>Posted on 2005-Jan-07 | <a href="/blog/GTD">GTD</a> | <a href=
+"/blog/GTD/NewGTDFeatures.htm">Link</a> | <a href=
+"javascript:HaloScan('GTD/NewGTDFeatures');" target="_self">
+<script type="text/javascript">
+postCount('GTD/NewGTDFeatures');
+</script>
+</a></p>
+</td>
+<td bgcolor="#999966">
+</td>
+</tr>
+</table>
+</body>
+</html>
+

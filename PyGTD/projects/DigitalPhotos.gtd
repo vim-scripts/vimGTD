@@ -1,0 +1,28 @@
+Project: Take better photos and make better use of them
+ 
+* Keep exisiting photos safe
+  C=0 T=1H D=2005-01-01 R=1M CRC=1FF0 ID=2
+
+  1. Organize unfiled photos on computer
+     C=0 T=1H CRC=51F6 ID=3
+
+  2. Burn backup CDs of new photos
+     C=0 T=1H CRC=1E29 ID=4
+
+* Learn to edit photos in photoshop
+  C=0 T=1H CRC=B95A ID=5
+
+  1. Find a book about Photoshop Elements 3
+     C=0 T=1H CRC=E233 ID=6
+     (Do a web search and find which one people like)
+
+  2. Acquire a Photoshop Elements 3 book
+     C=0 T=1H CRC=562C ID=7
+     (amazon?)
+
+  3. Read elements 3 book
+     C=0 T=8H CRC=FABA ID=8
+
+  4. Practice photoshop editing techniques
+     C=0 T=1H R=4D CRC=D4D5 ID=9
+

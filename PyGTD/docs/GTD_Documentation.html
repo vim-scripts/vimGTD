@@ -1,0 +1,423 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>PyGTD Documentation:</title>
+<style type="text/css">
+body,td { font-family: Verdana,Geneva,Arial,Sans-serif; 
+                  font-size: 11px; color: #000000; }
+a { text-decoration: none; }
+h1 { font-size: 18pt; font-weight: bold; color: #ffffff; margin-top: 0; margin-bottom: 0;}
+.date {font-weight: bold; color: #000000; font-style: italic}
+.h2 { font-weight: bold; color: #000000; }
+.blosxomTime { text-decoration: italicize; color: #000000; }
+h2 {
+margin-bottom: 0;
+         font-family: Verdana,Geneva,Arial,Sans-serif;
+        color: #000000;
+        font-size: 11pt;
+        font-weight: bold;
+        text-align: left;
+        padding-right: 3px;
+        border: 1px solid black;
+        border-width: 0px 0px 1px 0px;
+}
+</style>
+</head>
+<body bgcolor="#999966" text="#000000">
+<table border="0" cellpadding="5" cellspacing="5" summary=
+"page contents">
+<tr>
+<td colspan="2">
+<h1 style="margin-top: 0; margin-bottom: 0"><span class="title">PyGTD
+Documentation</span></h1>
+
+<p style="margin-top: 0; margin-bottom: 0"></p>
+</td>
+</tr>
+
+<tr valign="top">
+<td bgcolor="#FFFFFF" width="502">
+<h2>Overview</h2>
+
+<p>In March of 2004 I read David Allen's personal-productivity book <a
+href="http://96db.com/blog/ReadingNotes/0395-0.htm">Getting Things Done</a>, and I
+took to heart its central tenets of getting everything out of your head
+and into a trusted system, and writing down the <em>very next physical
+action</em> that will move you toward each of your stated goals.
+Allen's system is missing the dimensions of Urgency and Importance that
+Stephen Covey preaches in his <a href=
+"http://www.amazon.com/exec/obidos/ASIN/0671708635/areadersjournal">Seven
+Habits of Highly Effective People</a>, and that's an especially
+important aspect for any system that I will use. I have several
+long-term projects at work, and I need reminders to spend time on the
+important things that aren't too urgent.</p>
+
+<p>I tried several software packages for managing to-do lists,
+including <a href="http://www.natara.com/Bonsai/index.cfm">Natara's
+Bonsai</a> and <a href="http://www.llamagraphics.com/">Llamagraphics'
+Life Balance</a>, but I found that the former made it hard to keep
+track of what was important, and the latter made it a chore to enter
+data. I wanted something lightweight and flexible, and so, after
+several months of occasional experimentation, I decided to write my own
+tool.</p>
+
+<p>PyGTD is a simple system that incorporates major features from both
+Allen and Covey. It's a small <a href=
+"http://www.python.org">Python</a> program that crunches any number of
+lightly-formatted text files containing project to-do lists, and
+creates a prioritized to-do list based on the next physical action in
+each project. The prioritization takes into account the importance, the
+urgency, the effort required, and the schedule pressure. The project
+to-do files are hierarchical, enabling a very rich range of usage
+patterns.</p>
+
+<p>It's very easy to set up a programmer's text editor (I am currently
+using <a href="http://www.zeusedit.com">Zeus</a>) to run the Python
+script whenever you hit the compile button, and the new master to-do
+list is automatically reloaded. Alternatively, you can just run the
+gtd.py script manually, from the command line or by double-clicking the
+file.</p>
+
+<p>The PyGTD software is in a state where I find it quite usable and
+useful, and I'm releasing it under the GPL so that anyone who thinks it
+might be useful can try it out and make their own modifications. If you
+do try it out, please drop me a line and let me know.</p>
+
+<p>PyGTD has been tested under windows and Linux, and I don't see any
+reason why it wouldn't work unchanged on a Macintosh. Be forewarned
+that error handling is not robust, so if you deviate from the expected
+input format (described below), the script will not work the way you
+expect (it will probably bomb out on an exception).</p>
+
+<h2>Installation</h2>
+
+<p>Download <a href="http://96db.com/pyGTD.zip" title=
+"pyGTD.zip (17 kb)">pyGTD.zip</a> (17 kb)</p>
+
+<p>Unzip the archive to a convenient location (a directory called gtd
+will be created with all the files you need).</p>
+
+<p>Read the "<a href="#startingout" title="Starting Out">Starting
+Out</a>" section below.</p>
+
+<h2>How it works</h2>
+
+<p>You create several text files that represent your context-dependent
+Project and Next Action lists. The sample files included with PyGTD
+are:</p>
+
+<blockquote>
+<p>GTD.gtd<br>
+ Personal.gtd<br>
+ ProfessionalDevelopment.gtd</p>
+</blockquote>
+
+<p>When you run gtd.py, all of the next actions from each of these
+files are pulled out, prioritized, sorted, and put into a single
+todo.gtd file.</p>
+
+<p>When you make some progress on a task, you change the todo.gtd file
+to describe how much you've completed on that task and add any notes
+you have about the task. The next time you run gtd.py, the updated
+status is transfered back to each of your context-dependent Project and
+Next Action lists, and a new todo.gtd is created.</p>
+
+<pre>
+<code>  Context
+   lists    -&gt; todo.gtd -&gt; update todo.gtd -&gt;
+     ^                                      | 
+     |                                      V
+     &lt;-        &lt;-        &lt;-       &lt;-       &lt;-
+</code>
+</pre>
+
+<h2>Running it</h2>
+
+<blockquote>
+<pre>
+<code>python gtd.py
+</code>
+</pre>
+</blockquote>
+
+<p>This will parse all of the Context list files in the current
+directory and create a todo.gtd file in the current directory.</p>
+
+<h2>What it looks like</h2>
+
+<p>Text files!</p>
+
+<p>An entry in a Context list file looks like:</p>
+
+<p>--start of file--</p>
+
+<blockquote>
+<pre>
+<code>* Weekly review
+  C=0 I=5 U=4 T=1H D=2004-11-08 S=0D R=2004-11-01+1W ID=1
+  Review previous week's accomplishments
+  Look over long-term projects to determine relative priorities
+
+* Morning Review
+  C=0 I=5 U=4 T=1H D=2004-11-08 S=0D R=2004-11-01+1W ID=1
+  1. Review upcoming tasks and appointments
+     T=10M
+  2. Clear your head
+     T=20M
+</code>
+</pre>
+</blockquote>
+
+<p>--end of file--</p>
+
+<p>where</p>
+
+<table>
+<tr>
+<td valign="top">*</td>
+<td valign="top">An asterisk at the start of a line indicates this is a
+new task/subtask that can be completed in any order</td>
+</tr>
+
+<tr>
+<td valign="top">n.</td>
+<td valign="top">A line starting with a number followed by "." is a
+subtask that needs to be completed in a specific order. The lower
+number tasks 'block' the higher numbered tasks.</td>
+</tr>
+
+<tr>
+<td valign="top">title</td>
+<td valign="top">A * or n. is followed by the brief description or
+title of the task or project.</td>
+</tr>
+
+<tr>
+<td valign="top">status line</td>
+<td valign="top">
+<p>C=0 I=5 U=4 T=1H D=2004-11-08 S=0D R=2004-11-01+1W ID=1</p>
+
+<em>Note that you need not create a status line yourself. If you omit
+it, PyGTD will create it for you.</em> 
+
+<p>Here:</p>
+
+<table>
+<tr>
+<td valign="top">C=n</td>
+<td valign="top">Percent complete, where n is a number between 0 and
+100.</td>
+</tr>
+
+<tr>
+<td valign="top">I={1,2,3,4,5}</td>
+<td valign="top">Importance (a 5 is a task that is crucial to your life
+or livelihood; a 1 might be nice to do someday).</td>
+</tr>
+
+<tr>
+<td valign="top">U={1,2,3,4,5}</td>
+<td valign="top">Urgency on a logarithmic scale (5=today, 4=this week,
+3=this month, 2=this quarter, 1=this year).</td>
+</tr>
+
+<tr>
+<td valign="top">T=\d+[MHDW]</td>
+<td valign="top">Time required in minutes, hours, days, or weeks. By
+default, days are counted as 8 hours, weeks at 40 hours (you can
+override both of these values by changing constants in the script).
+Examples: T=10H (ten hours), T=3W (three weeks, or 120 hours).</td>
+</tr>
+
+<tr>
+<td valign="top">R=(YYYY-MM-DD\+)?\d+[DWMY]</td>
+<td valign="top">Recurrence, either on a fixed schedule (if the date is
+specified), or from time of completion (if not), in days, weeks,
+months, or years.<br>
+ Examples: 
+
+<ul>
+<li>1904-06-16+1Y - Every year on Bloomsday</li>
+
+<li>2004-11-29+1W - Every Monday, starting November 29th, 2004</li>
+
+<li>3D - The due date resets to three days later each time the task is
+completed.</li>
+
+<li>1M - The due date resets to 30.42 days later each time the task is
+completed (365 days/12 months ~= 30 days).</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td valign="top">S=\d+[DWMY]</td>
+<td valign="top">Startup time -- time in advance of due date where this
+task will start showing up in the todo list, in days, weeks, months or
+years.</td>
+</tr>
+
+<tr>
+<td valign="top">D=YYYY-MM-DD</td>
+<td valign="top">Due date.</td>
+</tr>
+
+<tr>
+<td valign="top">ID=n</td>
+<td valign="top">The id for the note. PyGTD will assign this
+automatically. If you choose to assign ids yourself, be sure that no
+two tasks in the same Context File have the same id.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<br>
+<br>
+ 
+
+<p>Any lines following the status options are notes. Notes lines can't
+start with * or a number plus ".", and should not contain elements that
+could be confused with the status line (the parser isn't very
+smart).</p>
+
+<p>New items need to be added to the Context list files. New sub items
+can be added in either the Context list files or todo.gtd.</p>
+
+<p><strong>A note on indentation</strong>: The first line of each
+subtask of a particular task must be indented with the same number of
+spaces. All lines, except for the first line of root-level tasks, must
+be indented by at least one space.</p>
+
+<h2>todo.gtd</h2>
+
+<p>The automatically-generated todo.gtd file contains entries of the
+form:</p>
+
+<p>--start of file--</p>
+
+<blockquote>
+<pre>
+<code>4.96 1:00 Exercise
+          C=0 P=6 I=5 U=4 T=1H D=2004-11-24 R=1D ID=14
+          Row
+          [Stay fit]
+          [./RecurringTasks.gtd]
+</code>
+</pre>
+</blockquote>
+
+<p>--end of file--</p>
+
+<p>where</p>
+
+<table>
+<tr>
+<td valign="top">4.96</td>
+<td valign="top">Priority: a derived index that is a measure of the
+time to complete the tast, the importance, the urgency and any deadline
+specified. Modifying this field will have no effect.</td>
+</tr>
+
+<tr>
+<td valign="top">1:00</td>
+<td valign="top">Time required to complete the Next Action in
+hours:minutes or hours. To modify this field, change the 'T=' portion
+of the status line.</td>
+</tr>
+
+<tr>
+<td valign="top">Exercise</td>
+<td valign="top">The title of the Next Action.</td>
+</tr>
+
+<tr>
+<td valign="top">C=0 P=6 [...]</td>
+<td valign="top">Status line: you can modify all fields here (except ID
+and P), and the changes will be propagated back to the individual
+Context list files. P={1,2,3,4,5,6}</td>
+</tr>
+
+<tr>
+<td valign="top">Row</td>
+<td valign="top">Notes associated with the next action.</td>
+</tr>
+
+<tr>
+<td valign="top">[Stay fit]</td>
+<td valign="top">Title of parent task, if one exists.</td>
+</tr>
+
+<tr>
+<td valign="top">[./RecurringTasks.gtd]</td>
+<td valign="top">File name of the Context list. Changes to this entry
+will be reflected back to that file. This allows you to tell the
+difference between Next Actions that have identical titles but
+different contexts, such as doing the same thing for several different
+clients/projects.</td>
+</tr>
+</table>
+
+<p>In the todo.gtd file, the second line (status variables) must exist
+for each item, and the ID variable must be set. This will happen
+automatically in normal usage.</p>
+
+<p>One an item gets from the Context list file into todo.gtd, all
+changes need to be made in todo.gtd. They will get propagated back
+correctly to the Context list file.</p>
+
+<p>You can also add new sub-items to tasks in todo.gtd, and they will
+get propagated correctly back to the Context list files.</p>
+
+<p>New items cannot be added to todo.gtd, only new sub-items.</p>
+
+<p><a name="startingout"></a></p>
+
+<h2>Starting out</h2>
+
+<p>I suggest modifying the included Context list files to start out,
+and modifying the todo.gtd file to get a sense for how the changes
+propagate.</p>
+
+<ol>
+<li>
+<p>You can create as many Context list files as you like. Each file
+needs must have the extension ".gtd".</p>
+</li>
+
+<li>
+<p>Run gtd.py to create the todo.gtd file.</p>
+</li>
+
+<li>
+<p>Edit todo.gtd to change the C= (Completion flag) on an item to 100,
+and re-run gtd.py.</p>
+</li>
+
+<li>
+<p>A new file, done.gtd was created in the same directory, with the
+completed item in it. The Context file has been updated, to show the
+item completed, and todo.gtd has also been updated, with a
+re-priortized, list without the completed item.</p>
+</li>
+</ol>
+
+<h2>Credits</h2>
+
+<p>Documentation drafted by <a href="http://www.tummy.com/" title=
+"Evelyn Mitchell">Evelyn Mitchell</a> and edited by <a href=
+"/about.htm">Keith Martin</a>.</p>
+
+<p>Code by <a href="http://96db.com/about.htm">Keith Martin</a>, with thanks to
+Stephen Waits for pointing me toward the datetime module, and to <a
+href="http://www.tummy.com/" title="Evelyn Mitchell">Evelyn</a> for
+helping debug the script under Linux.</p>
+</td>
+<td bgcolor="#999966">
+</td>
+</tr>
+</table>
+</body>
+</html>
+

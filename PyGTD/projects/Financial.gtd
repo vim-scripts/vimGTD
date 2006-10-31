@@ -1,0 +1,39 @@
+Project: Be financially responsible
+
+* Roth IRAs
+  C=0 I=5 U=3 T=1H D=2005-04-15 R=2005-04-15+1Y CRC=E6B2 ID=2
+
+  1. Send in IRA deposit to Ameritrade
+     C=0 T=1H CRC=C90D ID=3
+
+  2. Determine what area of the market to invest in this year
+     C=0 T=1H CRC=E425 ID=4
+     Take a look at existing investments, and determine which segment is most lacking
+
+  3. Invest this year's IRA funds
+     C=0 T=1H CRC=15D3 ID=5
+
+* Get documentation of the kids' guardianship/wills
+  C=0 I=5 U=3 T=1H CRC=83DF ID=6
+
+  1. Look over the microsoft lawyer software and review default guardianship/will documents
+     C=0 T=2H CRC=39EC ID=7
+
+  2. Go over default guardianship/will docs with Lisa
+     C=0 T=1H CRC=546F ID=8
+
+  3. Get guardianship/will docs notarized
+     C=0 T=2H CRC=EFF9 ID=9
+
+* File homestead declaration for the house
+  C=0 I=4 U=3 T=1H CRC=8A27 ID=10
+
+  1. Get the homestead declaration notarized
+     C=0 T=1H CRC=935E ID=11
+
+  2. Get directions to the registry of deeds
+     C=0 T=1H CRC=E633 ID=12
+
+  3. Bring the homestead declaration to the registry of deeds
+     C=0 T=1H CRC=AB84 ID=13
+

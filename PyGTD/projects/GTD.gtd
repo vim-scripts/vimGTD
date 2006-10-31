@@ -1,0 +1,16 @@
+Project: Recurring tasks to implement David Allen's Getting Things Done
+
+* Weekly review
+  C=0 I=5 U=4 T=1H D=2005-01-03 S=0D R=2005-01-03+1W CRC=4E09 ID=1
+  Review previous week's accomplishments.
+  Make sure project list is up to date.
+  Check relative priorities and deadlines of all projects.
+  Make sure that each project has a next physical action.
+
+* Daily review
+  C=0 I=5 U=5 T=1H D=2005-01-01 R=1D CRC=3BA4 ID=2
+  Clear your head!
+  Clear your desk
+  Synchronize PDA
+  Review the todo list
+
