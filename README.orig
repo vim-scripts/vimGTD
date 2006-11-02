@@ -2,7 +2,7 @@
 vimGTD - Using 'Getting Things Done' in Vim
 -------------------------------------------
 by Michael M. Tung <mtung@mat.upv.es>
-October 30, 2006
+November 2, 2006 / v1.1
 all plugin files under the Vim Copyright License
 
 
@@ -48,7 +48,7 @@ Installation is fairly easy. Follow these steps:
       so that ',gtd' launches PyGTD.
 
 (v)   If you use vim in combination with the Mutt email client, try out
-      the following macro in you muttrc configuration:
+      the following macro in your muttrc configuration:
 
       macro index \ch "!vim ~/GTD/todo.gtd\n" "start GTD"
       macro pager \ch "!vim ~/GTD/todo.gtd\n" "start GTD"
@@ -65,5 +65,21 @@ Installation is fairly easy. Follow these steps:
 
       Michael M. Tung <mtung@mat.upv.es>
       For Vim version 6.0 and above
-      Last change: October 30, 2006
+      Last change: November 1, 2006
+
+
+Acknowlegments
+--------------
+
+Many thanks to Yakov Lerner and Yegappan Lakshmanan from the vim newsgroup
+for helpful suggestions!
+
+
+Changes
+-------
+
+v1.1 separated parts of ftdetect code into ftplugin file (to avoid unwanted
+     loading of double-click function)
+
+v1.0 initial release
 

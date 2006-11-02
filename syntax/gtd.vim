@@ -1,8 +1,8 @@
 " Vim syntax file
 " Language:	GTD (pyGTD)
-" Version:      1.0
+" Version:      1.1
 " Maintainer:	Michael M. Tung <mtung@mat.upv.es>
-" Last Change:  Sun Oct 29 23:23:51 CET 2006
+" Last Change:  Wed Nov 01 17:19:03 CET 2006
 
 " A fast syntax hack for pyGTD todo and context files by Keith Martin.
 " Check the webpage http://96db.com/pyGTD/ for the program and documentation.
